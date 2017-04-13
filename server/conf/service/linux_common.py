@@ -26,3 +26,37 @@ class Cpu(BaseMonitor):
                        'threshold': 4,
                        'data_type': 'percentage'}
         }
+
+
+class Memory(BaseMonitor):
+
+    def __init__(self):
+        super(Memory, self).__init__()
+        self.name = 'Linux Memory'
+        self.interval = 120
+        self.plugin_name = 'get_memory_info'
+        self.triggers = {
+            'free': {'func': average,
+                     'minute': 10,
+                     'compare': 'lt',
+                     'warning': 20,
+                     'critical': 10,
+                     'data_type': 'percentage'}
+        }
+
+
+class FileSystem(BaseMonitor):
+
+    def __init__(self):
+        super(FileSystem, self).__init__()
+        self.name = 'Disk usage'
+        self.interval = 300
+        self.plugin_name = 'get_file_system_info'
+        self.triggers = {
+            'used': {'func': hit,
+                     'minute': 20,
+                     'compare': 'lt',
+                     'warning': 25,
+                     'critical': 15,
+                     'data_type': 'percentage'}
+        }
