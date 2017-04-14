@@ -10,7 +10,7 @@ class Nginx(BaseMonitor):
         super(Nginx, self).__init__()
         self.name = 'Middleware nginx'
         self.interval = 60
-        self.plugin_name = 'get_nginx_info'
+        self.plugin_name = 'nginx'
         self.triggers = {
             'alive': {'func': hit,
                       'minute': 5,

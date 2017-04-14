@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 import global_settings
 import pickle
+import time
 from redis_helper import RedisHelper
 from server.conf import hosts
 
@@ -38,3 +39,15 @@ def host_config_handle(client_ip):
                                  service.last_time
                                  ]
     return configs
+
+
+def report(msg):
+    msg_client = pickle.loads(msg)
+    client_ip = msg_client['ip']
+    key = 'StatusData:%s' % client_ip
+    msg_client['time_stamp'] = time.time()
+    redis = RedisHelper()
+    redis.set(key, pickle.dumps(msg_client))
+
+if __name__ == '__main__':
+    flush_all_host_configs_into_redis()
