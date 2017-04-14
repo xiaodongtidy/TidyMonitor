@@ -10,7 +10,7 @@ class Cpu(BaseMonitor):
         super(Cpu, self).__init__()
         self.name = 'Linux CPU'
         self.interval = 60
-        self.plugin_name = 'get_cpu_info'
+        self.plugin_name = 'cpu'
         self.triggers = {
             'idle': {'func': average,
                      'minute': 15,
@@ -34,7 +34,7 @@ class Memory(BaseMonitor):
         super(Memory, self).__init__()
         self.name = 'Linux Memory'
         self.interval = 120
-        self.plugin_name = 'get_memory_info'
+        self.plugin_name = 'memory'
         self.triggers = {
             'free': {'func': average,
                      'minute': 10,
@@ -51,7 +51,7 @@ class FileSystem(BaseMonitor):
         super(FileSystem, self).__init__()
         self.name = 'Disk usage'
         self.interval = 300
-        self.plugin_name = 'get_file_system_info'
+        self.plugin_name = 'file_system'
         self.triggers = {
             'used': {'func': hit,
                      'minute': 20,

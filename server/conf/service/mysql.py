@@ -10,7 +10,7 @@ class Mysql(BaseMonitor):
         super(Mysql, self).__init__()
         self.name = 'Middleware mysql'
         self.interval = 60
-        self.plugin_name = 'get_mysql_info'
+        self.plugin_name = 'mysql'
         self.triggers = {
             'alive': {'func': hit,
                       'minute': 5,

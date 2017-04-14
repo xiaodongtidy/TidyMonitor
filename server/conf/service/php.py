@@ -10,7 +10,7 @@ class PhpFpm(BaseMonitor):
         super(PhpFpm, self).__init__()
         self.name = 'Middleware php-fpm'
         self.interval = 60
-        self.plugin_name = 'get_php_fpm_info'
+        self.plugin_name = 'php'
         self.triggers = {
             'alive': {'func': hit,
                       'minute': 5,
