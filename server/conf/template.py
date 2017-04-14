@@ -20,7 +20,6 @@ class LinuxCommonTemplate(BaseTemplate):
     def __init__(self):
         super(LinuxCommonTemplate, self).__init__()
         self.name = 'LinuxCommonTemplate'
-        self.group_name = 'LinuxSystem'
         self.services = [
             linux_common.Cpu,
             linux_common.Memory,
@@ -33,7 +32,6 @@ class WebServiceTemplate(BaseTemplate):
     def __init__(self):
         super(WebServiceTemplate, self).__init__()
         self.name = 'WebServiceTemplate'
-        self.group_name = 'Middleware'
         self.services = [
             nginx.Nginx,
             php.PhpFpm,
@@ -45,7 +43,6 @@ class MysqlTemplate(BaseTemplate):
     def __init__(self):
         super(MysqlTemplate, self).__init__()
         self.name = 'MysqlTemplate'
-        self.group_name = 'Middleware'
         self.services = [
             mysql.Mysql
         ]
