@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+from service import linux_common
 
 
 class BaseTemplate(object):
@@ -18,5 +19,7 @@ class LinuxCommonTemplate(BaseTemplate):
         self.name = 'LinuxCommonTemplate'
         self.group_name = 'LinuxSystem'
         self.services = [
-
+            linux_common.Cpu,
+            linux_common.Memory,
+            linux_common.FileSystem
         ]
