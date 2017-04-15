@@ -50,3 +50,4 @@ def report(msg_client):
 
 if __name__ == '__main__':
     flush_all_host_configs_into_redis()
+    pass
