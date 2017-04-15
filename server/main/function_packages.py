@@ -4,7 +4,7 @@ import global_settings
 import pickle
 import time
 from redis_helper import RedisHelper
-from server.conf import hosts
+from conf import hosts
 
 
 def flush_all_host_configs_into_redis():
