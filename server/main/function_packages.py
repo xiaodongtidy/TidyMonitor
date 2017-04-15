@@ -41,12 +41,12 @@ def host_config_handle(client_ip):
     return configs
 
 
-def report(msg_client):
-    client_ip = msg_client['ip']
+def report(msg):
+    client_ip = msg['ip']
     key = 'StatusData:%s' % client_ip
-    msg_client['time_stamp'] = time.time()
+    msg['time_stamp'] = time.time()
     redis = RedisHelper()
-    redis.set(key, pickle.dumps(msg_client))
+    redis.set(key, pickle.dumps(msg))
 
 if __name__ == '__main__':
     flush_all_host_configs_into_redis()
