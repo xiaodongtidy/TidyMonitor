@@ -50,7 +50,7 @@ class MonitorClient(object):
         msg = self.format_msg('report',
                               {'ip': client_ip,
                                'service_name': service_name,
-                               'data': res
+                               'info_data': res
                                })
         self.redis.publish(msg)
 
