@@ -49,7 +49,7 @@ class MonitorClient(object):
         # 拼接出传递的数据
         msg = self.format_msg('report',
                               {'ip': client_ip,
-                               'service name': service_name,
+                               'service_name': service_name,
                                'data': res
                                })
         self.redis.publish(msg)
