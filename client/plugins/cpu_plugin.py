@@ -3,5 +3,4 @@
 
 
 def monitor():
-    print 'This is CPU'
-    return True
+    return 'This is CPU'
