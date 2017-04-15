@@ -16,7 +16,7 @@ class MonitorServer(object):
         while True:
             msg = redis_sub.parse_response()
             # 根据返回的消息头，执行消息头所对应的方法
-            msg_client = pickle.loads(msg)
+            msg_client = pickle.loads(msg[2])
             func_name = msg_client.keys()[0]
             func = getattr(function_packages, func_name)
             func(msg_client[func_name])
