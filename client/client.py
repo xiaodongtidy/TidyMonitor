@@ -47,7 +47,7 @@ class MonitorClient(object):
         res = func()
         print "\033[1;32m%s\033[0m" % res
         # 拼接出传递的数据
-        msg = self.format_msg('report ',
+        msg = self.format_msg('report',
                               {'ip': client_ip,
                                'service name': service_name,
                                'data': res
