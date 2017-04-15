@@ -28,7 +28,6 @@ class MonitorClient(object):
     def handle(self):
         if self.get_configs():
             while True:
-                # for service_name, config_value in self.configs:
                 for service_name, config_value in self.configs.items():
                     interval, plugin, last_time = config_value
                     if time.time() - last_time > interval:
