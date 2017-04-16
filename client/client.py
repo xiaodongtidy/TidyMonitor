@@ -36,7 +36,7 @@ class MonitorClient(object):
                         self.configs[service_name][2] = time.time()
                     else:
                         wait_time = interval - (time.time() - last_time)
-                        print 'please wait %s seconds' % wait_time
+                        print '%s will run in %s seconds' % (service_name, wait_time)
                 time.sleep(1)
         else:
             print '--- could not find the monitor configure ---'
