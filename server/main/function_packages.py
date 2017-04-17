@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import global_settings
 import pickle
 import time
-from redis_helper import RedisHelper
 from conf import hosts
+from utility.redis_helper import RedisHelper
 
 
+# 将客户端的配置刷进redis
 def flush_all_host_configs_into_redis():
     apply_host = []
     # 取出需要配置的ip
@@ -21,6 +21,16 @@ def flush_all_host_configs_into_redis():
         key = 'HostConfig:%s' % client_ip
         redis.set(key, pickle.dumps(apply_configs))
     return True
+
+
+def get_apply_host():
+    apply_host = []
+    # 取出需要监控的ip
+    for group in hosts.monitor_hosts:
+        apply_host.extend(group.hosts)
+    # 去重复客户端ip
+    apply_host = set(apply_host)
+    return apply_host
 
 
 def host_config_handle(client_ip):
