@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import MySQLdb
-import conf.config
+import server.conf.config
 
 
 class MysqlHelper(object):

@@ -4,8 +4,8 @@ import pickle
 import function_packages
 import threading
 import time
-from utility.redis_helper import RedisHelper
-from models.TidyMonitor_info import TidyMonitorInfo
+from server.utility.redis_helper import RedisHelper
+from server.models.TidyMonitor_info import TidyMonitorInfo
 
 
 class MonitorServer(object):
