@@ -24,15 +24,15 @@ class MonitorServer(object):
                 for service_name, config_value in apply_configs.items():
                     interval, plugin, last_time = config_value
                     time_stamp = self.TidyMonitorInfo.select_time_stamp(client_ip, service_name)
+                    tim = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
                     if time_stamp:
                         data_time = time_stamp[0]['time_stamp']
                         if time.time() - data_time < interval:
-                            tim = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
                             print "--- %s [ip]%s: %s is running ---" % (tim, client_ip, service_name)
                         else:
-                            print "--- %s: %s is uncommitted overtime ---" % (client_ip, service_name)
+                            print "--- %s [ip] %s: %s is uncommitted overtime ---" % (tim, client_ip, service_name)
                     else:
-                        print "--- %s: %s has not data ---" % (client_ip, service_name)
+                        print "--- %s [ip] %s: %s has not data ---" % (tim, client_ip, service_name)
                 time.sleep(1)
             time.sleep(1)
 
@@ -66,7 +66,8 @@ class MonitorServer(object):
         print '--- start to monitor host ---'
         a = threading.Thread(target=self.handle, args=[])
         a.start()
-        self.monitor()
+        b = threading.Thread(target=self.monitor, args=[])
+        b.start()
 
 if __name__ == '__main__':
     s = MonitorServer()
