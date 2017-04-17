@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import os
 import sys
-base_dir = os.path.dirname(os.path.dirname(__file__))
+base_dir = '/root/environment/py/08-monitor/TidyMonitor/server'
 sys.path.append(base_dir)
