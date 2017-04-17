@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+import global_settings
 import pickle
 import function_packages
 import threading
 import time
-import global_settings
 from server.utility.redis_helper import RedisHelper
 from server.models.TidyMonitor_info import TidyMonitorInfo
 
