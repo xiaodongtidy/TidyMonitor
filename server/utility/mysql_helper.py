@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import MySQLdb
-import server.conf.config
+import conf.config
 
 
 class MysqlHelper(object):
 
     def __init__(self):
-        self.__conn_dict = server.conf.config.conn
+        self.__conn_dict = conf.config.conn
 
     def get(self, sql, params):
         conn = MySQLdb.connect(**self.__conn_dict)

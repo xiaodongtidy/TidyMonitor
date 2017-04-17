@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from server.utility.mysql_helper import MysqlHelper
+from utility.mysql_helper import MysqlHelper
 
 
 class TidyMonitorInfo(object):

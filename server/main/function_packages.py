@@ -2,8 +2,8 @@
 # -*- coding:utf-8 -*-
 import pickle
 import time
-from server.conf import hosts
-from server.utility.redis_helper import RedisHelper
+from conf import hosts
+from utility.redis_helper import RedisHelper
 
 
 # 将客户端的配置刷进redis
