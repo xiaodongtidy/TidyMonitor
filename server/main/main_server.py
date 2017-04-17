@@ -65,9 +65,9 @@ class MonitorServer(object):
     def run(self):
         print '--- start to monitor host ---'
         a = threading.Thread(target=self.handle, args=[])
+        a.setDaemon(True)
         a.start()
-        b = threading.Thread(target=self.monitor, args=[])
-        b.start()
+        self.monitor()
 
 if __name__ == '__main__':
     s = MonitorServer()
